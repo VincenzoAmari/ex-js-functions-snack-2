@@ -31,14 +31,14 @@ console.log(quadrato(6)); //36
 // Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.
 
 const somma4 = (a, b) => a + b;
-const moltipicazione = (a, b) => a * b;
+const moltiplicazione = (a, b) => a * b;
 const sottrazione = (a, b) => a - b;
 const divisione = (a, b) => a / b;
 
 const eseguiOperazione = (a, b, operazione) => operazione(a, b);
 
 console.log(eseguiOperazione(4, 2, somma4)); //6
-console.log(eseguiOperazione(4, 2, moltipicazione)); //8
+console.log(eseguiOperazione(4, 2, moltiplicazione)); //8
 console.log(eseguiOperazione(4, 2, sottrazione)); //2
 console.log(eseguiOperazione(8, 2, divisione)); //4
 
@@ -46,17 +46,17 @@ console.log(eseguiOperazione(8, 2, divisione)); //4
 // Crea un generatore di funzioni creaTimer
 // Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".
 
-const timer = creaTimer(1000);
-
-function creaTimer(timer) {
+function creaTimer(tempo) {
   return function () {
     setTimeout(() => {
-      return console.log("tempo Scaduto!");
-    }, timer);
+      console.log("Tempo scaduto!");
+    }, tempo);
   };
 }
 
-timer();
+const timer1 = creaTimer(1000);
+
+timer1();
 
 // Snack 5
 // Crea una funzione stampaOgniSecondo con setInterval.
@@ -76,5 +76,23 @@ stampaOgniSecondo("stampo ogni secondo");
 
 setTimeout(() => {
   clearInterval(intervallo);
+  console.log("fine");
+}, 5000);
+
+// Snack 6
+// Crea un contatore automatico con setInterval
+// Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
+
+let contatore = 0;
+
+function creaContatoreAutomatico(intervallo1) {
+  return setInterval(() => {
+    contatore += 1;
+    console.log(contatore);
+  }, intervallo1);
+}
+const intervallo2 = creaContatoreAutomatico(1000);
+setTimeout(() => {
+  clearInterval(intervallo2);
   console.log("fine");
 }, 5000);
