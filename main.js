@@ -45,3 +45,15 @@ console.log(eseguiOperazione(8, 2, divisione)); //4
 // Snack 4
 // Crea un generatore di funzioni creaTimer
 // Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".
+
+const timer = creaTimer(1000);
+
+function creaTimer(timer) {
+  return function () {
+    setTimeout(() => {
+      return console.log("tempo Scaduto!");
+    }, timer);
+  };
+}
+
+timer();
