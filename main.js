@@ -57,3 +57,24 @@ function creaTimer(timer) {
 }
 
 timer();
+
+// Snack 5
+// Crea una funzione stampaOgniSecondo con setInterval.
+// Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
+
+// Nota: Questa funzione creerà un loop infinito. Interrompilo manualmente o usa clearInterval() in un altro script.
+
+let intervallo;
+
+function stampaOgniSecondo(frase) {
+  intervallo = setInterval(() => {
+    console.log(frase);
+  }, 1000);
+}
+
+stampaOgniSecondo("stampo ogni secondo");
+
+setTimeout(() => {
+  clearInterval(intervallo);
+  console.log("fine");
+}, 5000);
